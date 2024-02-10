@@ -10,6 +10,7 @@ func AuthRoutes(incomingRoutes *gin.Engine) {
 	incomingRoutes.POST("admin/login", controllers.Login())
 	incomingRoutes.POST("admin/signup", controllers.Register())
 	
+	
 }
 
 func ClientAuthRoutes(incomingRoutes *gin.Engine) {

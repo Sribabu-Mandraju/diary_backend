@@ -2,10 +2,10 @@ POST http://localhost:8080/admin/signup
 Content-Type: application/json
 
 {
-    "name":"sribab2u",
-    "company":"amas2zon",
-    "email":"sribabum2andraju@gmail.com",
-    "password":"63037s22ribabu",
+    "name":"madhavi",
+    "company":"u3tech",
+    "email":"madhavimandraju@gmail.com",
+    "password":"6303738847",
     "contact":"630s37238847",
     "User_type":"ADMIN"
 }
@@ -71,18 +71,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFu
 ###
 GET  http://localhost:8080/admin/all-requests
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzMwOTY2NH0.Ut7s2Xu_GfmncJfJQagnJcJYmu3-RcKpmlmIrpNnuPE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzY1MzI2NX0._bDlmihvtiJssfRwVzUb3qRoT9LpVrY4ox_q2qMu2ZA
 
 
 ###
 
-PUT  http://localhost:8080/admin/modify-request/65bbae2212890bd215e6ca25 
+PUT  http://localhost:8080/admin/modify-request/65c25c9f8b0befe3d15a3f54 
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzMwOTY2NH0.Ut7s2Xu_GfmncJfJQagnJcJYmu3-RcKpmlmIrpNnuPE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzY1MzI2NX0._bDlmihvtiJssfRwVzUb3qRoT9LpVrY4ox_q2qMu2ZA
 
 {
   
-  "action": "approved"
+  "action": "Rejected"
 }
 ###
 GET http://localhost:8080/admin/adminInfo
@@ -92,12 +92,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFu
 ###
 GET  http://localhost:8080/admin/client/all-clients 
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzMwOTY2NH0.Ut7s2Xu_GfmncJfJQagnJcJYmu3-RcKpmlmIrpNnuPE
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im1hZGhhdmltYW5kcmFqdUBnbWFpbC5jb20iLCJOYW1lIjoibWFkaGF2aSIsIkNvbnRhY3QiOiI2MzBzMzcyMzg4NDciLCJQYXNzd29yZCI6IiIsIkNvbXBhbnkiOiJ1M3RlY2giLCJVc2VyX2lkIjoiNjVjNzZiMzI2MjVmMTkyNDRhZDhlOTVjIiwiZXhwIjoxNzA3NjU0MzIyfQ.uNZcjS2a_jKhoaWYvhz_QL6iqy-9S7L4i4ijUgPSdHU
 
 
 ###
 
 GET  http://localhost:8080/admin/client/65b906c56b2a79046a9b5e35
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNyaWJhYnVtMmFuZHJhanVAZ21haWwuY29tIiwiTmFtZSI6InNyaWJhYjJ1IiwiQ29udGFjdCI6IjYzMHMzNzIzODg0NyIsIlBhc3N3b3JkIjoiIiwiQ29tcGFueSI6ImFtYXMyem9uIiwiVXNlcl9pZCI6IjY1YzBjNTQ0ZWYzYTFiNDAxMmM1Zjg4OSIsImV4cCI6MTcwNzMwOTY2NH0.Ut7s2Xu_GfmncJfJQagnJcJYmu3-RcKpmlmIrpNnuPE
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im1hZGhhdmltYW5kcmFqdUBnbWFpbC5jb20iLCJOYW1lIjoibWFkaGF2aSIsIkNvbnRhY3QiOiI2MzBzMzcyMzg4NDciLCJQYXNzd29yZCI6IiIsIkNvbXBhbnkiOiJ1M3RlY2giLCJVc2VyX2lkIjoiNjVjNzZiMzI2MjVmMTkyNDRhZDhlOTVjIiwiZXhwIjoxNzA3NjU0MzIyfQ.uNZcjS2a_jKhoaWYvhz_QL6iqy-9S7L4i4ijUgPSdHU
 
