@@ -28,6 +28,7 @@ func DBinstance() *mongo.Client {
     if err != nil {
         log.Fatal(err)
     }
+    
     fmt.Println("Connected to MongoDB!")
 
     return client
@@ -39,7 +40,7 @@ var Client *mongo.Client = DBinstance()
 //OpenCollection is a  function makes a connection with a collection in the database
 func OpenCollection(client *mongo.Client, collectionName string) *mongo.Collection {
 
-    var collection *mongo.Collection = client.Database("u3technologies").Collection(collectionName)
+    var collection *mongo.Collection = client.Database("diary").Collection(collectionName)
 
     return collection
 }
