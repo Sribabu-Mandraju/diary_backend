@@ -1,6 +1,6 @@
 module backend
 
-go 1.23
+go 1.21.5
 // commint one 
 require (
 	github.com/bytedance/sonic v1.10.2 // indirect
