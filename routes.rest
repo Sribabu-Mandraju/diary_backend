@@ -15,6 +15,14 @@ Content-Type: application/json
     "Email":"madhavimandraju@gmail.com",
     "Password":"6303738847"
  }
+###
+GET http://localhost:8080/admin/info
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6Im1hZGhhdmltYW5kcmFqdUBnbWFpbC5jb20iLCJOYW1lIjoibWFkaGF2aSIsIlBhc3N3b3JkIjoiIiwiVXNlcl9pZCI6IjY1ZWQ0MTBhYzE1NTllZjU4Yzc5YmY5ZiIsImV4cCI6MTcxMDQ0MzQwNn0.JvF-PEQ9nnRQutgJ9gV2zL5ZvH6cf02NmyP_YL0ToVY
 
- ###
+
+### 
+
+POST http://localhost:8080/diary/getAllDiaries/:userid
+
  

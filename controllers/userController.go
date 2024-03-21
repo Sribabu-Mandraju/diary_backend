@@ -1,22 +1,21 @@
 package controllers
 
 import (
-	"context"
-	"fmt"
-	"log"
-	"net/http"
-	"time"
-
 	"backend/database"
 	helper "backend/helpers"
 	"backend/models"
-	// "github.com/dgrijalva/jwt-go"
+	"context"
+	"fmt"
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
+	"log"
+	"net/http"
+	"time"
 )
 
 var userCollection *mongo.Collection = database.OpenCollection(database.Client, "users")
@@ -73,8 +72,7 @@ func Register() gin.HandlerFunc {
 			return
 		}
 
-
-		if countByEmail > 0   {
+		if countByEmail > 0 {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"error": "this email or contact already exists",
 			})
@@ -142,14 +140,14 @@ func Login() gin.HandlerFunc {
 
 		if !passwordIsValid {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "hello world",
+				"error": "invalid credentials",
 			})
 			return
 		}
 
 		if foundUser.Email == nil {
 			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "HELLO",
+				"error": "user not found",
 			})
 			return
 		}
@@ -167,7 +165,56 @@ func Login() gin.HandlerFunc {
 			return
 		}
 
-		c.JSON(http.StatusOK, foundUser)
+		c.JSON(http.StatusOK,gin.H{
+			"token":foundUser.Token,
+		})
 	}
 }
 
+func GetUserInfo() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		tokenString := c.GetHeader("Authorization")
+		fmt.Println("token string", tokenString)
+		if tokenString == "" {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Token not provided"})
+			return
+		}
+
+		token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+			return secretKey, nil
+		})
+		fmt.Println("token", token)
+		if err != nil {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+			return
+		}
+
+		claims, ok := token.Claims.(jwt.MapClaims)
+		if !ok || !token.Valid {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
+			return
+		}
+		fmt.Println("claims", claims)
+
+		userID, ok := claims["User_id"].(string)
+		if !ok {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to retrieve user information"})
+			return
+		}
+		fmt.Println("id", userID)
+
+		var user models.User
+		ctx := context.TODO()
+		err = userCollection.FindOne(ctx, bson.M{"user_id": userID}).Decode(&user)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to retrieve user information"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"user_id": user.User_id,
+			"name":user.Name,
+			"email":user.Email,
+		})
+	}
+}

@@ -17,7 +17,6 @@ import (
 type SignedDetails struct {
 	Email    string
 	Name     string
-	Password string
 	User_id  string
 	jwt.StandardClaims
 }

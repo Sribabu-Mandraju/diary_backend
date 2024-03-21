@@ -20,7 +20,6 @@ func GetAllDiaries() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var diaries []models.Diary
 
-		// Extract user ID from request parameters
 		userID := c.Param("userid")
 
 		ctx, cancel := context.WithTimeout(context.Background(), 100*time.Second)
